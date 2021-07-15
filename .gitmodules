@@ -1,0 +1,7 @@
+[submodule "cli"]
+	path = cli
+	url = https://github.com/RuggedBytes/liquid_loans_cli
+
+[submodule "esplora"]
+	path = esplora
+	url = https://github.com/Blockstream/esplora

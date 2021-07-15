@@ -1,0 +1,36 @@
+version: "3.5"
+
+services:
+  liquidregtest-esplora:
+    hostname: liquidregtest-esplora
+    image: liquidregtest-esplora:latest
+    command: /srv/explorer/run.sh liquid-regtest explorer
+    build:
+      context: ./esplora
+      dockerfile: ../Dockerfile-esplora
+    ports:
+      - "80:8092"
+    networks:
+      - liquid_loans_demo
+
+   
+  liquid-loans-demo:
+    hostname: liquid-loans-demo
+    image: liquid-loans-demo:latest
+    command: /app/gui_progs.sh
+    build:
+      context: .
+    networks:
+      - liquid_loans_demo
+    depends_on:
+      - liquidregtest-esplora
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/dri:/dev/dri
+    environment:
+      - DISPLAY=${DISPLAY}
+      - PYTHONPATH=/app/cli
+
+networks:
+  liquid_loans_demo:
+    name: liquid_loans_demo
