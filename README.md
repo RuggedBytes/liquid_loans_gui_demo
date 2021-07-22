@@ -193,6 +193,14 @@ You won't be able to "Grab collateral" if you did not spent the previously paid 
 from the control-asset covenant to Creditor's wallet. If the "Spend payment" button is green,
 spend those payments first, and then you can grab the collateral.
 
+Note that while the CLI tools have a guard logic against grabbing collateral before unclaimed
+repayments are spent, the smart contract itself does not prevent this. Grabbing the collateral
+also destroys the control asset, and this control asset is needed to claim the repayments.
+The guard logic on the application level prevents the situation where these repayments will
+be stuck unclaimed forever. The issue is discussed in more detail in the
+[https://ruggedbytes.com/articles/ll/#collateral-forfeiture]("Collateral forfeiture") section
+of the Appendix in the article.
+
 After Creditor grabs the collateral, the Debtor will be able to use "Get remaining collateral"
 to receive its portion of the collateral after the other portion was grabbed by the Creditor.
 
