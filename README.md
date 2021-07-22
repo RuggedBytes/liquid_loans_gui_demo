@@ -198,7 +198,7 @@ repayments are spent, the smart contract itself does not prevent this. Grabbing 
 also destroys the control asset, and this control asset is needed to claim the repayments.
 The guard logic on the application level prevents the situation where these repayments will
 be stuck unclaimed forever. The issue is discussed in more detail in the
-[https://ruggedbytes.com/articles/ll/#collateral-forfeiture]("Collateral forfeiture") section
+["Collateral forfeiture"](https://ruggedbytes.com/articles/ll/#collateral-forfeiture) section
 of the Appendix in the article.
 
 After Creditor grabs the collateral, the Debtor will be able to use "Get remaining collateral"
